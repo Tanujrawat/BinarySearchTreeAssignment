@@ -67,24 +67,42 @@ public class MyBinarySearchTree<E extends Comparable<E>> implements BinarySearch
 	}
     
 
-    @Override
-    public void inorder()
+    	@Override
+    	public void inOrder()
 	{
 		System.out.print("In-order Traversal:");
-		inorder(root);
+		inOrder(root);
 		System.out.println();
 	}
 
 	
-	private void inorder(Node<E> root)
+	private void inOrder(Node<E> root)
 	{
 		if (root == null)
 			return;
 
-		inorder(root.left);
+		inOrder(root.left);
 		System.out.print(" " + root.data);
-		inorder(root.right);
+		inOrder(root.right);
 	}
 
+	@Override
+	public void postOrder()
+	{
+		System.out.print("Post-order Traversal:");
+		postOrder(root);
+		System.out.println();
+	}
+
+
+	private void postOrder(Node<E> root)
+	{
+		if (root == null)
+			return;
+
+		postOrder(root.left);
+		postOrder(root.right);
+		System.out.print(" " + root.data);
+	}
    
 }
